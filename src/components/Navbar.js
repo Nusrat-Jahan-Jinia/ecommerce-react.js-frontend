@@ -19,7 +19,7 @@ export default class Navbar extends Component {
                 <Link to="/">Home</Link>
               </li>
               <li className="text-2xl font-semibold px-7">
-                <Link to="/about">Articles</Link>
+                <Link to="/articles">Articles</Link>
               </li>
               <li className="text-2xl font-semibold px-7">
                 <Link to="/users">Users</Link>
