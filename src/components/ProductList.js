@@ -1,21 +1,30 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "./Title";
 import Product from "./Product";
+import axios from "axios";
 
+const ProductList = () => {
+  const [data, setData] = useState(null);
 
-export default class ProductList extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <div className="py-5">
-          <div className="container">
-            <Title name="our" title="products" />
-          </div>
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/posts").then(res => {
+      console.log(res.data);
+      setData(res.data);
+    });
+  }, []);
+
+  return (
+    <React.Fragment>
+      <div className="py-5">
+        <div className="container">
+          <Title name="our" title="products" />
         </div>
-        <section>
-          <Product />
-        </section>
-      </React.Fragment>
-    );
-  }
-}
+      </div>
+      <section>
+        <Product />
+      </section>
+    </React.Fragment>
+  );
+};
+
+export default ProductList;
